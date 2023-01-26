@@ -1,5 +1,5 @@
 
-<h1>Movie Recommendation System  made by Machine Learning</h1>
+<h1>Movie Recommendation System </h1>
 
 <div>
   <h2></h2>
