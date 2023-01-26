@@ -4,7 +4,7 @@
 <div>
   <h2></h2>
   <h2></h2>
-<p>• Developed a web application using Streamlit serving a movie database API and deployed on Heroku.</p>
+<p>• Developed a web application using Streamlit serving a movie database API.</p>
 <p>• The Machine Learning Model is based on Content Based Recommendation System.</p>
 <p>• Implemented Text Vectorization with Bag of Words technique.</p>
 </div>
