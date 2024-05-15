@@ -6,8 +6,11 @@ from PIL import Image
 
 
 
-movies = pickle.load(open("movie.pkl", 'rb'))
-snake = pickle.load(open("similarity.pkl", 'rb'))
+with open("movie.pkl", 'rb') as file:
+    movies=pd.read_pickle(file)
+
+with open("similarity.pkl", 'rb') as file:
+    snake=pd.read_pickle(file)
 
 m_list = movies['title'].values
 
