@@ -33,12 +33,3 @@ https://user-images.githubusercontent.com/90309476/214901608-aa2a5acb-000a-4170-
 ![](https://github.com/Abhiram-Laha/Movie-Recommendation-System-/blob/main/ScreenShots/30.png)
 
 
-  <h2></h2>
-  <h2></h2>
-  
-  
-<h3> Mobile Screen Size : </h3>
-
-![](https://github.com/Abhiram-Laha/Movie-Recommendation-System-/blob/main/ScreenShots/p1.png)
-![](https://github.com/Abhiram-Laha/Movie-Recommendation-System-/blob/main/ScreenShots/p2.png)
-![](https://github.com/Abhiram-Laha/Movie-Recommendation-System-/blob/main/ScreenShots/p3.png)
