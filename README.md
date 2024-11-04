@@ -28,9 +28,9 @@ https://user-images.githubusercontent.com/90309476/214901608-aa2a5acb-000a-4170-
 <h2>Screenshots: </h2>
 
 
-![](https://github.com/Abhiram-Laha/Movie-Recommendation-System-/blob/main/ScreenShots/1.png)
-![](https://github.com/Abhiram-Laha/Movie-Recommendation-System-/blob/main/ScreenShots/2.png)
-![](https://github.com/Abhiram-Laha/Movie-Recommendation-System-/blob/main/ScreenShots/3.png)
+![](https://github.com/Abhiram-Laha/Movie-Recommendation-System-/blob/main/ScreenShots/10.png)
+![](https://github.com/Abhiram-Laha/Movie-Recommendation-System-/blob/main/ScreenShots/20.png)
+![](https://github.com/Abhiram-Laha/Movie-Recommendation-System-/blob/main/ScreenShots/30.png)
 
 
   <h2></h2>
