@@ -9,7 +9,10 @@ This project is a web application developed using Streamlit that serves as a Mov
 - **Text Vectorization**: Implements the Bag of Words technique for feature extraction from movie descriptions.
 
 ### Video Demonstration
-[![Movie Recommendation System](https://user-images.githubusercontent.com/90309476/214901608-aa2a5acb-000a-4170-a660-55abbc430dd3.mp4)](https://user-images.githubusercontent.com/90309476/214901608-aa2a5acb-000a-4170-a660-55abbc430dd3.mp4)
+
+
+https://github.com/user-attachments/assets/4f9f5e42-0ede-45f3-8d7e-2fc57cc53e8c
+
 
 ### Screenshots
 ![](https://github.com/Abhiram-Laha/Movie-Recommendation-System-/blob/main/ScreenShots/10.png)
