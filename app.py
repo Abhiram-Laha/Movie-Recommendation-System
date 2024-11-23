@@ -2,17 +2,64 @@ import streamlit as st
 import pickle
 import pandas as pd
 import requests
-import random
+import os
+import gdown
+import tempfile
+
+st.set_page_config(page_title="Movie Recommendation System")
 
 API_KEY = "b241488de441b6137b80562ec762b4ca"
-# Load movies and similarity data
-with open("movie.pkl", 'rb') as file:
+
+
+# Google Drive file ID for similarity.pkl
+similarity_file_id = "1YE37mlwbvU0FU6d4XX98kOsI2Gk2OE-H"
+
+# Function to download and load similarity.pkl from Google Drive
+def load_similarity_from_drive(file_id):
+    # Create a temporary directory for the download
+    temp_dir = tempfile.mkdtemp()  # This will create a unique temporary directory
+    temp_file_path = os.path.join(temp_dir, "similarity.pkl")
+
+    # Clean up any leftover .part files from previous downloads
+    if os.path.exists(f"{temp_file_path}.part"):
+        os.remove(f"{temp_file_path}.part")
+
+    # Download the file from Google Drive
+    print("Downloading similarity.pkl from Google Drive...")
+    url = f"https://drive.google.com/uc?id={file_id}"
+    gdown.download(url, temp_file_path, quiet=False)
+    print("similarity.pkl downloaded successfully!")
+
+    # Load the pickle file into memory
+    with open(temp_file_path, 'rb') as file:
+        similarity = pd.read_pickle(file)
+
+    # Optionally, remove the temporary directory after loading
+    os.remove(temp_file_path)
+    os.rmdir(temp_dir)
+
+    return similarity
+
+
+# Load the similarity file from Google Drive
+similarity = load_similarity_from_drive(similarity_file_id)
+
+
+print("Movies and similarity data loaded successfully!")
+
+
+
+
+movie_file_path = "movie.pkl"
+
+with open(movie_file_path, 'rb') as file:
     movies = pd.read_pickle(file)
-
-with open("similarity.pkl", 'rb') as file:
-    similarity = pd.read_pickle(file)
-
+    
 movie_list = movies['title'].values
+
+
+
+
 
 
 def fetch_poster(movie_id):
@@ -60,8 +107,7 @@ trending_movies = fetch_trending_movies()
 cols = st.columns(6)
 for idx, (title, movie_id) in enumerate(trending_movies):
     with cols[idx % 6]:  # Arrange six posters per row
-        st.image(fetch_poster(movie_id), use_column_width=True, width=100)  # Set a smaller width
-
+        st.image(fetch_poster(movie_id), use_column_width='auto')  # Adjust for mobile width
 
 
 st.divider()
@@ -78,7 +124,7 @@ if selected_movie:
     if movie_details:
         col1, col2 = st.columns([1, 2])
         with col1:
-            st.image(fetch_poster(movie_id), width=200)
+            st.image(fetch_poster(movie_id), use_column_width=True)
 
         with col2:
             st.header(movie_details['title'])
@@ -92,12 +138,16 @@ if selected_movie:
             names, posters = recommend(selected_movie)
             num_movies = len(names)
 
-            # Display recommended movies
+            # Display recommended movies with responsiveness
             for i in range(0, num_movies, 3):
-                cols = st.columns(3)
+                if num_movies <= 3:
+                    cols = st.columns(2)  # For smaller screens, show 2 columns per row
+                else:
+                    cols = st.columns(3)  # For larger screens, show 3 columns per row
+                
                 for j in range(3):
                     if i + j < num_movies:
                         with cols[j]:
+                            st.image(posters[i + j], use_column_width='auto')  # Adjust image size automatically
+                            st.write(names[i + j])
 
-                            st.image(posters[i + j], use_column_width=True)
-                            st.write(names[i+j])
